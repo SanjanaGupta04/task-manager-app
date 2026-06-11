@@ -18,16 +18,10 @@ function Dashboard() {
   };
 
   useEffect(() => {
-
-    const token = localStorage.getItem("token");
-
-    if (!token) {
-      navigate("/");
-    }
-
-    fetchTasks();
-
-  }, []);
+  if (!localStorage.getItem("token")) {
+    navigate("/login");
+  }
+}, [navigate]);
 
   // ADD TASK
   const addTask = async () => {
