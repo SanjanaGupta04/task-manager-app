@@ -9,7 +9,7 @@ function Dashboard() {
 
   const navigate = useNavigate();
 
-  const API = "http://127.0.0.1:5000/tasks";
+  const API = "https://task-manager-app-production-2339.up.railway.app/tasks";
 
   // FETCH TASKS
   const fetchTasks = async () => {
@@ -17,10 +17,13 @@ function Dashboard() {
     setTasks(res.data);
   };
 
-  useEffect(() => {
+ useEffect(() => {
   if (!localStorage.getItem("token")) {
     navigate("/login");
+    return;
   }
+
+  fetchTasks();
 }, [navigate]);
 
   // ADD TASK

@@ -11,10 +11,10 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = async () => {
-    const res = await axios.post(
-      "http://127.0.0.1:5000/login",
-      form
-    );
+    const res = await aaxios.post(
+  "https://task-manager-app-production-2339.up.railway.app/login",
+  form
+);
 
     if (res.data.token) {
       localStorage.setItem("token", res.data.token);
